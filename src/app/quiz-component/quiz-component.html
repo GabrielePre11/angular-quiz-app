@@ -1,0 +1,33 @@
+<div class="quiz">
+  <div class="container">
+    <!--========== Quiz Header ========== -->
+    <header class="quiz__header">
+      <h3>GPQuiz 2</h3>
+      <h4>Domanda {{questionIndex() + 1}} di {{questions.length}}</h4>
+    </header>
+
+    <!--========== QUESTION-COMPONENT ========== -->
+    <app-question-component />
+
+    <!--========== Quiz Buttons ========== -->
+    <div class="quiz__buttons">
+      <!--========== Go to previous question ========== -->
+      <button
+        aria-label="Go to previous question"
+        class="quiz__button"
+        (click)="prevQuest()"
+      >
+        Indietro
+      </button>
+
+      <!--========== Go to next question ========== -->
+      <button
+        class="quiz__button"
+        [attr.aria-label]="questionIndex() === questions.length ? 'End Quiz' : 'Go to next question'"
+        (click)="nextQuest()"
+      >
+        {{questionIndex() === questions.length - 1 ? 'Finisci Quiz' : 'Avanti'}}
+      </button>
+    </div>
+  </div>
+</div>

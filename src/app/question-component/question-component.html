@@ -1,0 +1,15 @@
+<!--========== Question Title ========== -->
+<h3 class="quiz__title">{{currQuestion().question}}</h3>
+
+<!--========== Questions ========== -->
+<ul class="questions">
+  @for (currentQuest of currQuestion().options; track $index) {
+  <li
+    class="question"
+    [class.selected]="currentQuest === selectedOption()"
+    (click)="handleOptionClick(currentQuest)"
+  >
+    {{currentQuest}}
+  </li>
+  }
+</ul>

@@ -1,0 +1,9 @@
+@mixin container {
+  max-width: 700px;
+  margin: auto;
+  padding-inline: 1rem;
+}
+
+main {
+  @include container();
+}

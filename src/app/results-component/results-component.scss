@@ -1,0 +1,102 @@
+@mixin flexItemCenterBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin flexItemCenter {
+  display: flex;
+  align-items: center;
+}
+
+.results {
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  gap: 10px;
+  background-color: var(--white-col);
+  color: #000;
+  border-radius: 10px;
+
+  h3 {
+    font-size: 3rem;
+    color: var(--lightBlue2);
+    text-align: center;
+  }
+
+  span {
+    font-size: 8rem;
+    text-align: center;
+    color: var(--darkBlue);
+  }
+
+  .results__buttons {
+    @include flexItemCenterBetween();
+    border-block-start: 3px solid var(--lightBlue2);
+    padding-block-start: 20px;
+
+    .follow__buttons {
+      @include flexItemCenter();
+      gap: 7px;
+
+      p {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--lightBlue2);
+      }
+
+      .github-icon,
+      .linkedin-icon {
+        border: none;
+        outline: none;
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: translateY(-6px);
+        }
+      }
+    }
+  }
+
+  .restart__button {
+    display: inline-block;
+    background-color: var(--lightBlue1);
+    padding: 15px 30px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    font-size: 18px;
+    color: var(--white-col);
+    transition: color 0.3s;
+
+    &:hover,
+    &:focus {
+      background-color: var(--lightBlue2);
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .results {
+    span {
+      font-size: 3rem;
+    }
+  }
+
+  .results__buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .restart__button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 470px) {
+  .results {
+    span {
+      font-size: 3.5rem;
+    }
+  }
+}
